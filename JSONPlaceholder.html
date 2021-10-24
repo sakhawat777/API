@@ -24,15 +24,22 @@
       const userNames = users.map(user=>user.username);
       const ul = document.getElementById("users-container"); 
     //   console.log(userNames);
+    //using for loop
     for(i=0; i<userNames.length;i++)
     {
        const userName = userNames[i]; 
        const li = document.createElement("li");
        li.innerText = userName;
        ul.appendChild(li);
-
-
     }
+
+    // Using Map 
+
+    //  const userName = userNames.map(userName =>userName);
+    //  const li = document.createElement("li");
+    //    li.innerText = userName;
+    //     ul.appendChild(li);
+
   }
 
    </script>
