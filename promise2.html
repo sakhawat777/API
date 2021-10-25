@@ -20,14 +20,15 @@
         const taskTwo = () => {
         return new Promise((resolve, reject) => {
        // resolve("task 2 Completed");
+       // setTimeout is a asynchronous function
        setTimeout(() => {
         resolve("task 2 Completed");
-       }, 5000);
+       }, 2000);
     })
         }
         const taskThree = () => {
         return new Promise((resolve, reject) => {
-        // resolve("task 3 Completed");
+       // resolve("task 3 Completed");
         reject("task 3 is not Completed")
     })
         }
@@ -37,7 +38,7 @@
     })
         }
         //Promise Chaining 
-        // asynchronous function work after synchronous function
+        // asynchronous function work after synchronous function and when data is loading asynchronous function is not blocking code. The Data is loading and still other code is runninggit
 taskOne().then((res)=>console.log(res))
 .then(taskTwo)
 .then((res)=>console.log(res))
@@ -47,7 +48,7 @@ taskOne().then((res)=>console.log(res))
 .then((res)=>console.log(res))
 // one catch function is enough for multiple promise error detection
 .catch(error=>console.log(error));
-// Synchronous function work first
+// Synchronous function work first and Synchronous function work step by step(single threaded) that's means do code blocked  
 console.log("Allah Hafez");
         
     </script>
