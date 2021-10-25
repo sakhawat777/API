@@ -21,6 +21,7 @@
   .then(response => response.json())
   .then(json => displayUser(json))
 //   .catch(error=>console.log(error));
+//.catch(error=>alert("Sorry, We are not enable to load data. Please try again later!"));
   function displayUser(users){
       const userNames = users.map(user=>user.username);
       const ul = document.getElementById("users-container"); 
