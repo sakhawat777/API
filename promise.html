@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Practice</title>
+</head>
+<body>
+    <h1>Promise Practice</h1>
+    <script>
+        // How to create a promise- pending, resolve, reject
+let myPromise = new Promise((resolveFunc, rejectFunc) => {
+    let result = 2;
+    if(result==2){
+        resolveFunc("Success");
+    }
+    else {
+        rejectFunc("Failed!");
+    }
+})
+
+let promise2 = new Promise((resolve, reject) => {
+    
+resolve("Completed Promise 2");
+    
+})
+// called single promise 
+myPromise.then((res) => console.log(res)).catch((error)=>console.log(error))
+// called single promise 
+promise2.then((res)=> console.log(res));
+// called Multiple promise together
+Promise.all([myPromise, promise2])
+ .then((res)=>console.log(res));
+// using destructure 
+// .then(([res1, res2])=>console.log(res1, res2));
+
+// use race function. Show output which is resolve first
+let Promise3 = new Promise((resolveFunc, rejectFunc) => {
+    setTimeout(() => {
+        resolveFunc("Completed Promise 3");
+    }, 1000);
+})
+
+let Promise4 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Completed Promise 4");
+    }, 2000);
+})
+Promise.race([Promise3, Promise4])
+ .then((res)=>console.log(res));
+    </script>
+</body>
+</html>
