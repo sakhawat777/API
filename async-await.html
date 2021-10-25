@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promise2 Practice</title>
+    <title>async await Practice</title>
 </head>
 <body>
-    <h1>Promise 2 Practice</h1>
+    <h1>async await Practice</h1>
     <script>
         // Synchronous function work first
         console.log("Welcome");
@@ -28,7 +28,7 @@
         }
         const taskThree = () => {
         return new Promise((resolve, reject) => {
-       // resolve("task 3 Completed");
+        //resolve("task 3 Completed");
         reject("task 3 is not Completed")
     })
         }
@@ -37,20 +37,28 @@
         resolve("task 4 Completed");
     })
         }
-        //Promise Chaining 
-        // asynchronous function work after synchronous function and when data is loading asynchronous function is not blocking code. The Data is loading and still other code is running
-taskOne().then((res)=>console.log(res))
-.then(taskTwo)
-.then((res)=>console.log(res))
-.then(taskThree)
-.then((res)=>console.log(res))
-.then(taskFour)
-.then((res)=>console.log(res))
-// one catch function is enough for multiple promise error detection
-.catch(error=>console.log(error));
-// Synchronous function work first and Synchronous function work step by step(single threaded) that's means do code blocked  
+
+// async await convert asynchronous work to synchronous work that's help to done task serially.
+// async function callAllTask(){
+    const callAllTask = async () => {
+            try{
+            const task1 = await taskOne();
+            console.log(task1);
+            const task2 = await taskTwo();
+            console.log(task2);
+            const task3 = await taskThree();
+            console.log(task3);
+            const task4 = await taskFour();
+            console.log(task4);
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+        callAllTask();
 console.log("Allah Hafez");
         
     </script>
 </body>
 </html>
+
