@@ -45,7 +45,7 @@ let Promise3 = new Promise((resolveFunc, rejectFunc) => {
 let Promise4 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve("Completed Promise 4");
-    }, 2000);
+    }, 2000); // minimum 2000 ms er aage kaj shes hobe na aro beshi time lagte pare
 })
 Promise.race([Promise3, Promise4])
  .then((res)=>console.log(res));
